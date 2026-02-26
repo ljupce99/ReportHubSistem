@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Notifications;
+use App\Models\Announcement;
 use App\Http\Requests\StoreNotificationsRequest;
 use App\Http\Requests\UpdateNotificationsRequest;
 
-class NotificationsController extends Controller
+class AnnouncementsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -35,7 +35,7 @@ class NotificationsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Notifications $notifications)
+    public function show(Announcement $notifications)
     {
         //
     }
@@ -43,7 +43,7 @@ class NotificationsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Notifications $notifications)
+    public function edit(Announcement $notifications)
     {
         //
     }
@@ -51,7 +51,7 @@ class NotificationsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateNotificationsRequest $request, Notifications $notifications)
+    public function update(UpdateNotificationsRequest $request, Announcement $notifications)
     {
         //
     }
@@ -59,7 +59,7 @@ class NotificationsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Notifications $notifications)
+    public function destroy(Announcement $notifications)
     {
         //
     }

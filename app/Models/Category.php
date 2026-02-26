@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Categories extends Model
+class Category extends Model
 {
     use HasFactory;
 
@@ -19,9 +19,9 @@ class Categories extends Model
         'is_active' => 'boolean',
     ];
 
-    // 🔗 One category has many notifications
-    public function notifications()
+    // 🔗 One category has many announcements
+    public function announcements()
     {
-        return $this->hasMany(Notifications::class);
+        return $this->hasMany(Announcement::class);
     }
 }
