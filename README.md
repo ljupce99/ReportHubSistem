@@ -5,6 +5,30 @@
 
 ### 221258 Александар Јанев
 ### 221277 Љупчо Јованов
+<br>
+<br>
+
+<strong>How to start the project:</strong>
+
+
+composer install <br>
+copy .env.example .env <br>
+php artisan key:generate <br>
+php artisan migrate <br>
+php artisan db seed <br>
+php artisan serve <br>
+<br><br>
+<strong>Login info</strong>
+
+email: admin@company.com <br>
+password: password
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
