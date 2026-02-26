@@ -1,7 +1,7 @@
 
 
-## Систем за интерно известување во компанија	
-Веб платформа за креирање и дистрибуција на интерни известувања до вработени. Поддржува категории, таргетирани корисници, временски објави и систем за нотификации.
+## System for internal announcements in a company	
+Full Stack Laravel application for creating and distributing internal announcements to employees. Supports categories, targeted users, timed announcements, and a notification system.
 
 ### 221258 Александар Јанев
 ### 221277 Љупчо Јованов
