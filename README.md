@@ -15,7 +15,7 @@ composer install <br>
 copy .env.example .env <br>
 php artisan key:generate <br>
 php artisan migrate <br>
-php artisan db seed <br>
+php artisan db:seed <br>
 php artisan serve <br>
 <br><br>
 <strong>Login info</strong>
