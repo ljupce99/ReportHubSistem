@@ -47,6 +47,7 @@ class AdminPanelProvider extends PanelProvider
             ->pages([Dashboard::class])
             ->widgets([
                 StatsOverview::class,
+
             ])
             ->middleware([
                 EncryptCookies::class,

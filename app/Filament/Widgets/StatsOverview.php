@@ -15,6 +15,7 @@ class StatsOverview extends BaseWidget
             Stat::make('Total Announcements', Announcement::count()),
             Stat::make('Active Announcements', Announcement::where('is_active', true)->count()),
             Stat::make('Total Users', User::count()),
+
         ];
     }
 }
