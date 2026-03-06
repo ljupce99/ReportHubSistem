@@ -12,9 +12,9 @@
     <span class="font-bold text-lg">ReportHubSystem</span>
     <div class="flex items-center gap-4">
         <span class="text-sm text-gray-600">{{ auth()->user()->email }}</span>
-        <form method="POST" action="{{ route('filament.admin.auth.logout') }}">
+        <form method="POST" action="/logout">
             @csrf
-            <button class="text-sm text-red-500 hover:underline">Одјавви се</button>
+            <button class="text-sm text-red-500 hover:underline">Одјави се</button>
         </form>
     </div>
 </nav>
