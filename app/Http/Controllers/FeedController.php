@@ -16,11 +16,10 @@ class FeedController extends Controller
                     ->orWhere('expire_at', '>', now());
             })
             ->where(function ($query) {
-                $target = json_encode([auth()->id()]);
                 $query->whereJsonContains('target', 'all')
                     ->orWhereJsonContains('target', (string) auth()->id());
             })
-            ->orderByRaw("JSON_EXTRACT(target, '$') = '[\"all\"]' DESC")
+            ->orderByRaw("CASE WHEN target::jsonb = '[\"all\"]'::jsonb THEN 1 ELSE 0 END DESC")
             ->latest()
             ->paginate(10);
 
