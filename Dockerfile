@@ -25,7 +25,8 @@ RUN apt-get update \
         pdo_pgsql \
         pgsql \
         zip \
-    && a2enmod rewrite headers \
+    && a2dismod mpm_event mpm_worker || true \
+    && a2enmod mpm_prefork rewrite headers \
     && sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
