@@ -17,7 +17,6 @@ RUN apt-get update \
         unzip \
         libicu-dev \
         libzip-dev \
-        libsqlite3-dev \
         libpq-dev \
     && docker-php-ext-install \
         bcmath \
@@ -25,7 +24,6 @@ RUN apt-get update \
         pdo_mysql \
         pdo_pgsql \
         pgsql \
-        pdo_sqlite \
         zip \
     && a2enmod rewrite headers \
     && sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf \
@@ -39,12 +37,11 @@ WORKDIR /var/www/html
 COPY . .
 
 RUN composer install --no-interaction --prefer-dist --optimize-autoloader \
-    && mkdir -p storage/framework/cache storage/framework/sessions storage/framework/testing storage/framework/views bootstrap/cache public/build database \
-    && touch database/database.sqlite \
-    && chown -R www-data:www-data storage bootstrap/cache database
+    && mkdir -p storage/framework/cache storage/framework/sessions storage/framework/testing storage/framework/views bootstrap/cache public/build \
+    && chown -R www-data:www-data storage bootstrap/cache
 
 COPY --from=assets /app/public/build ./public/build
 
 EXPOSE 80
 
-CMD php artisan migrate --force && php artisan db:seed --force && apache2-foreground
+CMD php artisan migrate --force && php artisan db:seed --force && php artisan optimize && apache2-foreground
