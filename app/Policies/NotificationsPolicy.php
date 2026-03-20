@@ -13,7 +13,7 @@ class NotificationsPolicy
      */
     public function viewAny(User $user): bool
     {
-        return false;
+        return $user->role === 'admin' || $user->role === 'manager';
     }
 
     /**
@@ -21,7 +21,8 @@ class NotificationsPolicy
      */
     public function view(User $user, Announcement $notifications): bool
     {
-        return false;
+        // All users can view announcements
+        return true;
     }
 
     /**
@@ -29,7 +30,7 @@ class NotificationsPolicy
      */
     public function create(User $user): bool
     {
-        return false;
+        return $user->role === 'admin' || $user->role === 'manager';
     }
 
     /**
@@ -37,7 +38,7 @@ class NotificationsPolicy
      */
     public function update(User $user, Announcement $notifications): bool
     {
-        return false;
+        return $user->role === 'admin' || $user->role === 'manager';
     }
 
     /**
@@ -45,7 +46,7 @@ class NotificationsPolicy
      */
     public function delete(User $user, Announcement $notifications): bool
     {
-        return false;
+        return $user->role === 'admin' || $user->role === 'manager';
     }
 
     /**
@@ -53,7 +54,7 @@ class NotificationsPolicy
      */
     public function restore(User $user, Announcement $notifications): bool
     {
-        return false;
+        return $user->role === 'admin' || $user->role === 'manager';
     }
 
     /**
@@ -61,6 +62,6 @@ class NotificationsPolicy
      */
     public function forceDelete(User $user, Announcement $notifications): bool
     {
-        return false;
+        return $user->role === 'admin' || $user->role === 'manager';
     }
 }

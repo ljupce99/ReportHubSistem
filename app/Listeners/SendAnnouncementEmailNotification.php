@@ -31,10 +31,10 @@ class SendAnnouncementEmailNotification implements ShouldQueue
         $announcement = $event->announcement;
         $recipients = $this->getRecipients($announcement);
 
-        // Send emails without queue to avoid duplicates
+        // Queue emails to avoid blocking the request
         foreach ($recipients as $recipient) {
             Mail::to($recipient->email)
-                ->send(new AnnouncementNotification($announcement));
+                ->queue(new AnnouncementNotification($announcement));
         }
     }
 
